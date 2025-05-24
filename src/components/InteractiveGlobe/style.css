@@ -146,7 +146,77 @@
   color: white;
 }
 
-/* Globe Legend */.globe-legend {  position: absolute;  bottom: 20px;  left: 20px;  background: rgba(255, 255, 255, 0.1);  backdrop-filter: blur(10px);  border-radius: 15px;  padding: 1rem;  color: white;  max-width: 280px;  z-index: 10;  border: 1px solid rgba(255, 255, 255, 0.2);  transition: all 0.3s ease;}.globe-legend.collapsed {  max-width: 60px;  padding: 0.5rem;}.legend-header {  display: flex;  align-items: center;  justify-content: space-between;  margin-bottom: 1rem;}.globe-legend.collapsed .legend-header {  margin-bottom: 0;  justify-content: center;}.globe-legend h4 {  margin: 0;  font-size: 1rem;  font-weight: 600;  white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;}.globe-legend.collapsed h4 {  display: none;}.legend-toggle {  background: rgba(255, 255, 255, 0.2);  border: 1px solid rgba(255, 255, 255, 0.3);  color: white;  padding: 0.25rem 0.5rem;  border-radius: 8px;  font-size: 1rem;  cursor: pointer;  transition: all 0.3s ease;  flex-shrink: 0;  margin-left: 0.5rem;}.globe-legend.collapsed .legend-toggle {  margin-left: 0;}.legend-toggle:hover {  background: rgba(255, 255, 255, 0.3);  transform: scale(1.1);}.legend-content {  transition: all 0.3s ease;}
+/* Globe Legend */
+.globe-legend {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1rem;
+  color: white;
+  max-width: 280px;
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.globe-legend.collapsed {
+  max-width: 60px;
+  padding: 0.5rem;
+}
+
+.legend-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.globe-legend.collapsed .legend-header {
+  margin-bottom: 0;
+  justify-content: center;
+}
+
+.globe-legend h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.globe-legend.collapsed h4 {
+  display: none;
+}
+
+.legend-toggle {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
+.globe-legend.collapsed .legend-toggle {
+  margin-left: 0;
+}
+
+.legend-toggle:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.legend-content {
+  transition: all 0.3s ease;
+}
 
 .legend-section {
   margin-bottom: 1rem;
@@ -423,4 +493,7 @@
     font-size: 0.8rem;
   }
   
-    .legend-item {    font-size: 0.7rem;  }}/* Collapsible Legend Styles */.globe-legend {  transition: all 0.3s ease;}.globe-legend.collapsed {  max-width: 60px;  padding: 0.5rem;}.legend-header {  display: flex;  align-items: center;  justify-content: space-between;  margin-bottom: 1rem;}.globe-legend.collapsed .legend-header {  margin-bottom: 0;  justify-content: center;}.globe-legend.collapsed h4 {  display: none;}.legend-toggle {  background: rgba(255, 255, 255, 0.2);  border: 1px solid rgba(255, 255, 255, 0.3);  color: white;  padding: 0.25rem 0.5rem;  border-radius: 8px;  font-size: 1rem;  cursor: pointer;  transition: all 0.3s ease;  flex-shrink: 0;  margin-left: 0.5rem;}.globe-legend.collapsed .legend-toggle {  margin-left: 0;}.legend-toggle:hover {  background: rgba(255, 255, 255, 0.3);  transform: scale(1.1);}.legend-content {  transition: all 0.3s ease;} 
+  .legend-item {
+    font-size: 0.7rem;
+  }
+} 

@@ -1,6 +1,5 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import Globe from 'react-globe.gl';
-import { feature } from 'topojson-client';
 import { 
   comprehensiveWorldCities, 
   getCityColor, 
