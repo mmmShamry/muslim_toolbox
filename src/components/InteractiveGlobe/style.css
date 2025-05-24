@@ -1,0 +1,426 @@
+/* Interactive Globe Styles */
+.interactive-globe-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: radial-gradient(circle at center, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Globe Controls */
+.globe-controls {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+.control-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.control-btn {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.control-btn:active {
+  transform: translateY(0);
+}
+
+/* City Filter Controls */
+.city-filter-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.filter-group {
+  display: flex;
+  gap: 0.3rem;
+  flex-direction: column;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-2px);
+}
+
+.filter-btn.active {
+  background: rgba(74, 144, 226, 0.8);
+  border-color: rgba(74, 144, 226, 1);
+  transform: translateX(-3px);
+  box-shadow: 0 3px 10px rgba(74, 144, 226, 0.3);
+}
+
+/* City Tooltip */
+.city-tooltip {
+  position: absolute;
+  bottom: 90px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  min-width: 220px;
+  z-index: 10;
+  animation: fadeIn 0.3s ease;
+}
+
+.city-tooltip h4 {
+  margin: 0 0 0.5rem 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.city-tooltip p {
+  margin: 0.25rem 0;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.city-tooltip small {
+  color: #667eea;
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+/* Badges */
+.capital-badge, .holy-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin: 0.3rem 0.3rem 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.capital-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.holy-badge {
+  background: linear-gradient(135deg, #228B22 0%, #32CD32 100%);
+  color: white;
+}
+
+/* Globe Legend */.globe-legend {  position: absolute;  bottom: 20px;  left: 20px;  background: rgba(255, 255, 255, 0.1);  backdrop-filter: blur(10px);  border-radius: 15px;  padding: 1rem;  color: white;  max-width: 280px;  z-index: 10;  border: 1px solid rgba(255, 255, 255, 0.2);  transition: all 0.3s ease;}.globe-legend.collapsed {  max-width: 60px;  padding: 0.5rem;}.legend-header {  display: flex;  align-items: center;  justify-content: space-between;  margin-bottom: 1rem;}.globe-legend.collapsed .legend-header {  margin-bottom: 0;  justify-content: center;}.globe-legend h4 {  margin: 0;  font-size: 1rem;  font-weight: 600;  white-space: nowrap;  overflow: hidden;  text-overflow: ellipsis;}.globe-legend.collapsed h4 {  display: none;}.legend-toggle {  background: rgba(255, 255, 255, 0.2);  border: 1px solid rgba(255, 255, 255, 0.3);  color: white;  padding: 0.25rem 0.5rem;  border-radius: 8px;  font-size: 1rem;  cursor: pointer;  transition: all 0.3s ease;  flex-shrink: 0;  margin-left: 0.5rem;}.globe-legend.collapsed .legend-toggle {  margin-left: 0;}.legend-toggle:hover {  background: rgba(255, 255, 255, 0.3);  transform: scale(1.1);}.legend-content {  transition: all 0.3s ease;}
+
+.legend-section {
+  margin-bottom: 1rem;
+}
+
+.legend-section h5 {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4A90E2;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.2rem;
+}
+
+.legend-items {
+  margin-bottom: 0.5rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.4rem;
+  font-size: 0.75rem;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.6rem;
+  flex-shrink: 0;
+}
+
+.legend-dot.continent {
+  width: 10px;
+  height: 10px;
+}
+
+.legend-dot.holy-city {
+  background: #228B22;
+  box-shadow: 0 0 8px #228B22;
+}
+
+.legend-dot.capital-city {
+  background: #667eea;
+  box-shadow: 0 0 6px #667eea;
+}
+
+.legend-dot.major-city {
+  background: #FF6B35;
+  box-shadow: 0 0 4px #FF6B35;
+}
+
+.legend-instructions {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 0.75rem;
+}
+
+.legend-instructions p {
+  margin: 0.25rem 0;
+  font-size: 0.7rem;
+  opacity: 0.9;
+}
+
+.legend-instructions strong {
+  color: #4A90E2;
+}
+
+/* Globe Point Labels */
+.globe-point-label {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.globe-point-label strong {
+  color: #4A90E2;
+}
+
+.label-badge {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border-radius: 8px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  margin: 0.1rem;
+  text-transform: uppercase;
+}
+
+.label-badge.capital {
+  background: #667eea;
+  color: white;
+}
+
+.label-badge.holy {
+  background: #228B22;
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Loading Animation */
+.globe-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  z-index: 5;
+}
+
+.globe-loading::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 1rem auto;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #4A90E2;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .interactive-globe-container {
+    max-width: 100%;
+    border-radius: 15px;
+  }
+  
+  .globe-controls {
+    top: 15px;
+    left: 15px;
+  }
+  
+  .city-filter-controls {
+    top: 15px;
+    right: 15px;
+  }
+  
+  .control-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .filter-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+  }
+  
+  .city-tooltip {
+    bottom: 80px;
+    right: 15px;
+    min-width: 180px;
+    padding: 0.8rem;
+  }
+  
+  .globe-legend {
+    bottom: 15px;
+    left: 15px;
+    max-width: 240px;
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .control-group {
+    flex-direction: column;
+  }
+  
+  .control-btn {
+    width: 100px;
+    text-align: center;
+  }
+  
+  .filter-group {
+    flex-direction: row;
+    gap: 0.2rem;
+  }
+  
+  .filter-btn {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.65rem;
+  }
+  
+  .city-tooltip {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    margin: 1rem;
+  }
+  
+  .globe-legend {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin: 1rem;
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .interactive-globe-container {
+    border-radius: 10px;
+  }
+  
+  .globe-controls {
+    top: 10px;
+    left: 10px;
+  }
+  
+  .city-filter-controls {
+    top: 10px;
+    right: 10px;
+  }
+  
+  .control-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+  
+  .filter-btn {
+    padding: 0.2rem 0.3rem;
+    font-size: 0.6rem;
+  }
+  
+  .city-tooltip {
+    margin: 0.5rem;
+    padding: 0.6rem;
+  }
+  
+  .globe-legend {
+    margin: 0.5rem;
+    padding: 0.6rem;
+  }
+  
+  .legend-instructions p {
+    font-size: 0.65rem;
+  }
+  
+  .legend-section h5 {
+    font-size: 0.8rem;
+  }
+  
+    .legend-item {    font-size: 0.7rem;  }}/* Collapsible Legend Styles */.globe-legend {  transition: all 0.3s ease;}.globe-legend.collapsed {  max-width: 60px;  padding: 0.5rem;}.legend-header {  display: flex;  align-items: center;  justify-content: space-between;  margin-bottom: 1rem;}.globe-legend.collapsed .legend-header {  margin-bottom: 0;  justify-content: center;}.globe-legend.collapsed h4 {  display: none;}.legend-toggle {  background: rgba(255, 255, 255, 0.2);  border: 1px solid rgba(255, 255, 255, 0.3);  color: white;  padding: 0.25rem 0.5rem;  border-radius: 8px;  font-size: 1rem;  cursor: pointer;  transition: all 0.3s ease;  flex-shrink: 0;  margin-left: 0.5rem;}.globe-legend.collapsed .legend-toggle {  margin-left: 0;}.legend-toggle:hover {  background: rgba(255, 255, 255, 0.3);  transform: scale(1.1);}.legend-content {  transition: all 0.3s ease;} 

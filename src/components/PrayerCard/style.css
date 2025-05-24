@@ -1,0 +1,118 @@
+.prayer-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 2px solid rgba(102, 126, 234, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.prayer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.prayer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.prayer-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: float 3s ease-in-out infinite;
+}
+
+.prayer-name {
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.prayer-time {
+  color: #667eea;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0.5rem 0;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 1px 2px rgba(102, 126, 234, 0.2);
+}
+
+.prayer-description {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0 0;
+  font-weight: 500;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Animation for icons */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .prayer-card {
+    padding: 1.25rem;
+  }
+  
+  .prayer-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .prayer-name {
+    font-size: 1.2rem;
+  }
+  
+  .prayer-time {
+    font-size: 1.5rem;
+  }
+  
+  .prayer-description {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .prayer-card {
+    padding: 1rem;
+  }
+  
+  .prayer-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .prayer-name {
+    font-size: 1.1rem;
+  }
+  
+  .prayer-time {
+    font-size: 1.3rem;
+  }
+  
+  .prayer-description {
+    font-size: 0.75rem;
+  }
+} 
